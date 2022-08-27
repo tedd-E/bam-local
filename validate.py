@@ -26,7 +26,7 @@ def validate():
                 shutil.copyfileobj(f_in, f_out)
 
     for bamfile in os.listdir(directory):
-        if bamfile.endswith(".bam"):
+        if not bamfile.endswith(".gz"):
             try:
                 pysam.quickcheck(directory+bamfile)
             except Exception:

@@ -4,7 +4,7 @@ import shutil
 import os
 
 
-def summary(self):
+def summary():
     directory = "/test_data/"
 
     artifact_info = "--BAM SUMMARY--"

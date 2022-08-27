@@ -3,7 +3,7 @@ import pysam
 import gzip
 import os
 
-def validate(self):
+def validate():
     directory = "/test_data/"
 
     # unzip and generate .bai

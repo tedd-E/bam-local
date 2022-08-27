@@ -32,7 +32,6 @@ def validate():
             except Exception:
                 print("%s failed sanity check." % bamfile)
                 return False
-            os.remove(os.path.abspath(directory+bamfile))
 
     print("All files validated")
     return True

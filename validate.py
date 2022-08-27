@@ -4,7 +4,7 @@ import gzip
 import os
 
 def validate():
-    directory = "/test_data/"
+    directory = "test_data/"
 
     # unzip and generate .bai
     # for bamfile in os.listdir(directory):
@@ -24,12 +24,15 @@ def validate():
             bamfilepath = os.path.abspath(bamfile)
             with gzip.open(bamfilepath, 'rb') as f_in, open(bamfilepath.rsplit(".", 1)[0], 'wb') as f_out:
                 shutil.copyfileobj(f_in, f_out)
-            bamfile = bamfile[-3:]
-        try:
-            pysam.quickcheck(bamfile)
-        except Exception:
-            print("%s failed sanity check." %bamfile)
-            return False
-        os.remove(os.path.abspath(bamfile))
 
+    for bamfile in os.listdir(directory):
+        if bamfile.endswith(".bam"):
+            try:
+                pysam.quickcheck(directory+bamfile)
+            except Exception:
+                print("%s failed sanity check." % bamfile)
+                return False
+            os.remove(os.path.abspath(directory+bamfile))
+
+    print("All files validated")
     return True

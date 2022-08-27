@@ -15,7 +15,7 @@ def summary():
                 shutil.copyfileobj(f_in, f_out)
             bamfile = bamfile[-3:]
 
-        artifact_info += '\n' + str(pysam.flagstat(bamfile))
+        artifact_info += '\n' + str(pysam.flagstat(os.path.abspath(bamfile)))
 
     print(artifact_info)
     return True

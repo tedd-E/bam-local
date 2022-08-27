@@ -5,7 +5,7 @@ import os
 
 
 def summary():
-    directory = "/test_data/"
+    directory = "test_data/"
 
     artifact_info = "--BAM SUMMARY--"
     for bamfile in os.listdir(directory):

@@ -18,4 +18,16 @@ def summary():
         artifact_info += '\n' + str(pysam.flagstat(directory+bamfile))
 
     print(artifact_info)
+
     return True
+
+    # Work on this part if we have time to make visualization for the summary
+    # code from https://pypi.org/project/pysamstats/0.14/
+    # mybam = pysam.Samfile(artifact_files[0])
+    # a = pysamstats.load_coverage(mybam, chrom='Pf3D7_01_v3', start=10000, end=20000)
+    # plt.plot(a.pos, a.reads_all)
+    # plot = BytesIO()
+    # plt.savefig(plot, format='png')
+    # artifact_information = [(
+    #     '<img src = "data:image/png;base64,{}"/>'.format(
+    #         b64encode(plot.getvalue()).decode('utf-8')))]

@@ -20,6 +20,8 @@ def summary():
     print(artifact_info)
     with open(directory+"summary.html", 'w') as summaryfile:
         summaryfile.write(artifact_info)
+
+    with open(directory+"summary.html", 'r') as summaryfile:
         html = summaryfile.read()
         if html == EXP_HTML:
             print("matches summary output")
